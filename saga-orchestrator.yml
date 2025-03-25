@@ -1,0 +1,27 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: saga-orchestrator
+
+axon:
+  serializer:
+    general: jackson
+    events: jackson
+    messages: jackson
+  eventhandling:
+    processors:
+      sagaProcessor:
+        mode: tracking
+  eventstore:
+    jdbc:
+      schema: public
+
+kafka:
+  bootstrap-servers: localhost:9092
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
